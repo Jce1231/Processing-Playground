@@ -1,7 +1,10 @@
 Snake s;
+
+int scale = 20;
 void setup() {
   size(600, 600);
   s = new Snake();
+  frameRate(30);
 }
 
 void draw() {
