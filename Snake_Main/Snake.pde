@@ -13,7 +13,7 @@ class Snake {
     this.x = this.x + this.xSpeed*scale;
     this.y = this.y + this.ySpeed*scale;
     this.x = constrain(this.x,0,width-scale);
-    this.y = constrain(this.y,0,height-scale);
+    this.y = constrain(this.y,20,height-scale);
   }
   void show() {
     fill(255);
@@ -22,5 +22,9 @@ class Snake {
   void direct(int xDir, int yDir) {
     this.xSpeed = xDir;
     this.ySpeed = yDir;
+  }
+  boolean eat(Food f){
+    int d =(int) dist(this.x,this.y,f.x,f.y);
+    return (d<1);
   }
 }

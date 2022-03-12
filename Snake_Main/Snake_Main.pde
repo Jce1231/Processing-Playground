@@ -1,16 +1,26 @@
 Snake s;
-
+Food f;
+int points;
 int scale = 20;
 void setup() {
-  size(600, 600);
+  size(600, 620);
   s = new Snake();
-  frameRate(30);
+  frameRate(15);
+  f = new Food();
 }
 
 void draw() {
   background(51);
+  fill(255);
+  textSize(20);
+  text("Points: " + points ,20,20);
   s.update();
   s.show();
+  if (s.eat(f)){
+    f = new Food();
+    points++;
+  }
+  f.show();
 }
 
 
