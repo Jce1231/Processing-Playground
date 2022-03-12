@@ -1,3 +1,4 @@
+import java.util.Stack;
 Snake s;
 Food f;
 int points;
@@ -13,13 +14,14 @@ void draw() {
   background(51);
   fill(255);
   textSize(20);
-  text("Points: " + points ,20,20);
+  text("Points: " + points, 20, 20);
   s.update();
   s.show();
-  if (s.eat(f)){
+  if (s.eat(f)) {
     f = new Food();
     points++;
   }
+
   f.show();
 }
 
