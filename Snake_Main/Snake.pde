@@ -15,9 +15,9 @@ class Snake { //<>//
       for (int i = 0; i<tail.size()-1; i++) {
         tail.set(i, tail.get(i+1));
       }
-        tail.set(tail.size()-1, new Tail(this.x, this.y)); //<>//
-      }
-    
+      tail.set(tail.size()-1, new Tail(this.x, this.y));
+    }
+
     this.x = this.x + this.xSpeed*scale;
     this.y = this.y + this.ySpeed*scale;
     this.x = constrain(this.x, 0, width-scale);
@@ -39,10 +39,20 @@ class Snake { //<>//
   boolean eat(Food f) {
     int d =(int) dist(this.x, this.y, f.x, f.y);
     if (d<1) {
-      tail.add(new Tail(this.x,this.y));
+      tail.add(new Tail(this.x, this.y));
       return true;
     } else {
       return false;
+    }
+  }
+  void death() {
+    if (tail.size() != 0) {
+      for (Tail t : tail) {
+        int d = (int)dist(this.x, this.y, t.x, t.y);
+        if (d < 1) {
+          dead = true;
+        }
+      }
     }
   }
 }

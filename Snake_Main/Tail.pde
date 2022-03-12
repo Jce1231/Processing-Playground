@@ -9,7 +9,7 @@ class Tail {
     fill(255);
     rect(this.x, this.y, scale, scale);
   }
-  void update(int a, int b){
+  void update(int a, int b) {
     this.x = a;
     this.y = b;
   }

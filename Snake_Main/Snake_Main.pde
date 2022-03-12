@@ -3,6 +3,7 @@ Snake s;
 Food f;
 int points;
 int scale = 20;
+boolean dead = false;
 void setup() {
   size(600, 620);
   s = new Snake();
@@ -11,18 +12,27 @@ void setup() {
 }
 
 void draw() {
-  background(51);
-  fill(255);
-  textSize(20);
-  text("Points: " + points, 20, 20);
-  s.update();
-  s.show();
-  if (s.eat(f)) {
-    f = new Food();
-    points++;
-  }
+  if (dead) {
+    background(255, 0, 0);
+    textSize(128);
+    fill(125, 0, 255);
+    text("You lose", 0, 160);
+    text("Points: "+points, 0, 320);
+  } else {
+    background(51);
+    fill(255);
+    textSize(20);
+    text("Points: " + points, 20, 20);
+    s.update();
+    s.death();
+    s.show();
+    if (s.eat(f)) {
+      f = new Food();
+      points++;
+    }
 
-  f.show();
+    f.show();
+  }
 }
 
 
