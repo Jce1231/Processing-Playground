@@ -37,13 +37,18 @@ void draw() {
 
 
 void keyPressed() {
-  if (keyCode == UP) {
+  String prevKey = "";
+  if (keyCode == UP && prevKey != "Down") {
+    prevKey = "Up";
     s.direct(0, -1);
-  } else if (keyCode == DOWN) {
+  } else if (keyCode == DOWN && prevKey != "Up") {
+    prevKey = "Down";
     s.direct(0, 1);
-  } else if (keyCode == RIGHT) {
+  } else if (keyCode == RIGHT && prevKey != "Left") {
+    prevKey = "Right";
     s.direct(1, 0);
-  } else if (keyCode == LEFT) {
+  } else if (keyCode == LEFT && prevKey != "Right") {
+    prevKey = "Left";
     s.direct(-1, 0);
   }
 }

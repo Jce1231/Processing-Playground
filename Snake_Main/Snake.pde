@@ -1,4 +1,4 @@
-class Snake { //<>//
+class Snake {
   int x;
   int y;
   int xSpeed;
@@ -24,7 +24,7 @@ class Snake { //<>//
     this.y = constrain(this.y, 20, height-scale);
   }
   void show() {
-    fill(255);
+    fill(this.x%256,this.y%256,0);
     rect(this.x, this.y, scale, scale);
     if (tail.size() != 0) {
       for (Tail t : tail) {
