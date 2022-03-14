@@ -1,15 +1,15 @@
 class Ray {
   PVector pos;
   PVector dir;
-  Ray(int x, int y) {
+  Ray(float x, float y,float angle) {
     this.pos = new PVector(x, y);
-    this.dir = new PVector(1, 0);
+    this.dir = PVector.fromAngle(angle);
   }
   void show() {
     stroke(255);
     push();
     translate(this.pos.x, this.pos.y);
-    line(0, 0, dir.x*10, dir.y*10);
+    line(0, 0, this.dir.x*10, this.dir.y*10);
     pop();
   }
   void lookAt(float x, float y) {
