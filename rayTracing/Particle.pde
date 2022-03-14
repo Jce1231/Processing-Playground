@@ -3,7 +3,7 @@ class Particle {
   ArrayList<Ray> rays = new ArrayList<>();
   Particle() {
     this.pos = new PVector(width/2, height/2);
-    for (int i = 0; i<360; i+=10) {
+    for (int i = 0; i<360; i++) {
 
       this.rays.add(new Ray(this.pos, radians(i)));
     }
@@ -21,7 +21,7 @@ class Particle {
       PVector closest = null;
       float record = 2000000;
       for (Boundary wall : walls) {
-        
+
         PVector pt = r.cast(wall);
         if (pt != null) {
           float d = PVector.dist(this.pos, pt);
@@ -32,6 +32,7 @@ class Particle {
         }
       }
       if (closest != null) {
+        stroke(255,100);
         line(this.pos.x, this.pos.y, closest.x, closest.y);
       }
     }
