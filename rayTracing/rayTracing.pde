@@ -1,18 +1,23 @@
-Boundary wall;
+Boundary walls[];
 //Ray ray;
 Particle particle;
 void setup() {
   size(400, 400);
-  wall = new Boundary(300, 100, 300, 300);
+  walls = new Boundary[5];
+  for (int i = 0; i<walls.length; i++) {
+    walls[i] = new Boundary(random(width), random(height), random(width), random(height));
+  }
   //ray = new Ray(100,200);
   particle = new Particle();
 }
 void draw() {
   background(0);
-  wall.show();
-  particle.update(mouseX,mouseY);
+  for (Boundary wall : walls) {
+    wall.show();
+  }
+  particle.update(mouseX, mouseY);
   particle.show();
-  particle.look(wall);
+  particle.look(walls);
   //ray.show();
   //ray.lookAt(mouseX, mouseY);
   //PVector pt = ray.cast(wall);

@@ -5,7 +5,7 @@ class Particle {
     this.pos = new PVector(width/2, height/2);
     for (int i = 0; i<360; i+=10) {
 
-      this.rays.add(new Ray(this.pos.x, this.pos.y, radians(i)));
+      this.rays.add(new Ray(this.pos, radians(i)));
     }
   }
   void show() {
@@ -15,11 +15,24 @@ class Particle {
       r.show();
     }
   }
-  void look(Boundary wall) {
+  void look(Boundary[] walls) {
+
     for (Ray r : rays) {
-      PVector pt = r.cast(wall);
-      if (pt != null) {
-        line(this.pos.x, this.pos.y, pt.x, pt.y);
+      PVector closest = null;
+      float record = 2000000;
+      for (Boundary wall : walls) {
+        
+        PVector pt = r.cast(wall);
+        if (pt != null) {
+          float d = PVector.dist(this.pos, pt);
+          if (d<record) {
+            record = d;
+            closest = pt;
+          }
+        }
+      }
+      if (closest != null) {
+        line(this.pos.x, this.pos.y, closest.x, closest.y);
       }
     }
   }

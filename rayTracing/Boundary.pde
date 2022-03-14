@@ -1,7 +1,7 @@
 class Boundary {
   PVector a;
   PVector b;
-  Boundary(int x1, int y1, int x2, int y2) {
+  Boundary(float x1, float y1, float x2, float y2) {
     this.a = new PVector(x1, y1);
     this.b = new PVector(x2, y2);
   }

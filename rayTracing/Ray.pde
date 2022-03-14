@@ -1,8 +1,8 @@
 class Ray {
   PVector pos;
   PVector dir;
-  Ray(float x, float y,float angle) {
-    this.pos = new PVector(x, y);
+  Ray(PVector _pos, float angle) {
+    this.pos = _pos;
     this.dir = PVector.fromAngle(angle);
   }
   void show() {
