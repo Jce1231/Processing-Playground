@@ -2,8 +2,8 @@ Boundary walls[];
 //Ray ray;
 Particle particle;
 void setup() {
-  size(400, 400);
-  walls = new Boundary[5];
+  size(1280, 720);
+  walls = new Boundary[10];
   for (int i = 0; i<walls.length; i++) {
     walls[i] = new Boundary(random(width), random(height), random(width), random(height));
   }
