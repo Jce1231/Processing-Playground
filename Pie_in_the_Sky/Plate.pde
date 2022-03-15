@@ -14,7 +14,13 @@ class Plate {
   void update(float x) {
     this.pos.x = x;
   }
-    Boolean catches(Pie pie){
-  return true;
+  Boolean catches(Pie pie) {
+    if (pie.pos.y >= this.pos.y && this.pos.y >0&& pie.pos.x > this.pos.x-this.w/2 && pie.pos.x < this.pos.x + this.w/2) {
+      println(pie.pos.x + " " + pie.pos.y);
+      println(this.pos.x + " " + this.pos.y);
+      return true;
+    } else {
+      return false;
+    }
   }
 }
