@@ -7,7 +7,7 @@ boolean dead = false;
 void setup() {
   size(600, 620);
   s = new Snake();
-  frameRate(15);
+  frameRate(5);
   f = new Food();
 }
 
