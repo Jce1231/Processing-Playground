@@ -7,16 +7,17 @@ void setup() {
 }
 void draw() {
   background(0);
+  if(random(1)<0.1){
   pies.add(new Pie(random(width), random(-100, -20)));
+  }
   for (Pie pie : pies) {
     pie.show();
     pie.update();
-    if (plate.catches(pie)) {
-      println("Yay");
-    }
   }
-  for (int i = 0; i<pies.size()-1; i++) {
-    if (pies.get(i).pos.y > height) {
+  for (int i = pies.size()-1; i>=0; i--) {
+    if (plate.catches(pies.get(i))) {
+      pies.remove(i);
+    } else if (pies.get(i).pos.y > height +pies.get(i).r) {
       pies.remove(i);
     }
   }

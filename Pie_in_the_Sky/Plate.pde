@@ -8,6 +8,7 @@ class Plate {
     this.h = 10;
   }
   void show() {
+    fill(255);
     rectMode(CENTER);
     rect(this.pos.x, this.pos.y, this.w, this.h);
   }
@@ -15,9 +16,7 @@ class Plate {
     this.pos.x = x;
   }
   Boolean catches(Pie pie) {
-    if (pie.pos.y >= this.pos.y && this.pos.y >0&& pie.pos.x > this.pos.x-this.w/2 && pie.pos.x < this.pos.x + this.w/2) {
-      println(pie.pos.x + " " + pie.pos.y);
-      println(this.pos.x + " " + this.pos.y);
+    if (pie.pos.y +pie.r >= this.pos.y && this.pos.y >0&& pie.pos.x > this.pos.x-this.w/2 && pie.pos.x < this.pos.x + this.w/2) {
       return true;
     } else {
       return false;
