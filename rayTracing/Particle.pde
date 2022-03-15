@@ -3,7 +3,7 @@ class Particle {
   ArrayList<Ray> rays = new ArrayList<>();
   Particle() {
     this.pos = new PVector(width/2, height/2);
-    for (int i = 0; i<360; i++) {
+    for (int i = -60; i<60; i++) {
 
       this.rays.add(new Ray(this.pos, radians(i)));
     }
