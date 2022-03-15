@@ -3,7 +3,7 @@ class Plate {
   float h;
   float w;
   Plate(float x, float w) {
-    this.pos = new PVector(x, height -this.h);
+    this.pos = new PVector(x, height-200 -this.h);
     this.w = w;
     this.h = 10;
   }
