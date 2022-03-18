@@ -40,6 +40,12 @@ class Rocket {
     if (this.pos.x>obstacle.pos.x && this.pos.x < obstacle.pos.x + obstacle.w && this.pos.y > obstacle.pos.y && this.pos.y < obstacle.pos.y + obstacle.h) {
       this.crashed = true;
     }
+    if(this.pos.x > width || this.pos.x <0){
+    this.crashed = true;
+    }
+    if(this.pos.y > height || this.pos.y < 0){
+    this.crashed = true;
+    }
     this.applyForce(this.dna.genes.get(count));
     if (!this.completed && !this.crashed) {
       this.vel.add(this.acc);
