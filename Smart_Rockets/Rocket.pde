@@ -4,6 +4,7 @@ class Rocket {
   PVector acc;
   PVector force;
   DNA dna;
+  float fitness;
   Rocket() {
     this.pos = new PVector(width/2,height);
     this.vel = new PVector();
@@ -11,6 +12,7 @@ class Rocket {
     this.force = new PVector();
     this.applyForce(force);
     this.dna = new DNA();
+    this.fitness = 0;
     
   }
   void applyForce(PVector force) {
@@ -31,5 +33,9 @@ class Rocket {
     rectMode(CENTER);
     rect(0, 0, 25, 5);
     pop();
+  }
+  void calcFitness(){
+  float d = dist(this.pos.x,this.pos.y,target.pos.x,target.pos.y);
+  this.fitness = 1/d;
   }
 }

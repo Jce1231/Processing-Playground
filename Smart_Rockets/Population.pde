@@ -8,10 +8,15 @@ class Population {
       this.rockets.add(new Rocket());
     }
   }
-  void run(){
-  for (Rocket r: this.rockets){
-    r.update();
-    r.show();
+  void run() {
+    for (Rocket r : this.rockets) {
+      r.update();
+      r.show();
+    }
   }
+  void evaluate() {
+    for (Rocket r : this.rockets) {
+      r.calcFitness();
+    }
   }
 }
