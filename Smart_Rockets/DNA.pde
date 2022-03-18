@@ -20,4 +20,11 @@ class DNA {
     }
     return newDna;
   }
+  void mutation(){
+    for(int i = 0 ; i<this.genes.size()-1;i++){
+    if(random(1)<0.01){
+      this.genes.set(i,PVector.random2D().setMag(0.1));
+    }
+    }
+  }
 }

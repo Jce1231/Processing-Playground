@@ -43,6 +43,7 @@ class Population {
       DNA parentA = this.matingPool.get(randNumA).dna;
       DNA parentB = this.matingPool.get(randNumB).dna;
       DNA child = parentA.crossover(parentB);
+      child.mutation();
       newRockets.add(new Rocket(child));
     }
     this.rockets.clear();
