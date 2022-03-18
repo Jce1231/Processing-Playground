@@ -4,7 +4,6 @@ class Rocket {
   PVector acc;
   PVector force;
   DNA dna;
-  int count;
   Rocket() {
     this.pos = new PVector(width/2,height);
     this.vel = new PVector();
@@ -12,16 +11,13 @@ class Rocket {
     this.force = new PVector();
     this.applyForce(force);
     this.dna = new DNA();
-    this.count = 0;
+    
   }
   void applyForce(PVector force) {
     this.acc.add(force);
   }
   void update() {
-    if(this.count < lifeSpan){
-    this.applyForce(this.dna.genes.get(this.count));
-    this.count++;
-    }
+    this.applyForce(this.dna.genes.get(count));
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0);
