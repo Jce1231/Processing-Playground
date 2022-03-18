@@ -12,9 +12,15 @@ void draw() {
   population.run();
   count++;
   if (count == lifeSpan) {
-    population = new Population();
+    population.evaluate();
+    population.selection();
+    //population = new Population();
     count = 0;
   }
   println(count);
   target.show();
+  textSize(32);
+  fill(255);
+  textAlign(CENTER, CENTER);
+  text(count, width-32,10);
 }

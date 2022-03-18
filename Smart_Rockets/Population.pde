@@ -37,13 +37,15 @@ class Population {
   }
   void selection() {
     ArrayList<Rocket> newRockets = new ArrayList<>();
-    for(Rocket r: this.rockets){
-    int randNumA = floor(random(this.matingPool.size()-1));
-    int randNumB = floor(random(this.matingPool.size()-1));
-    DNA parentA = this.matingPool.get(randNumA).dna;
-    DNA parentB = this.matingPool.get(randNumB).dna;
-    DNA child = parentA.crossover(parentB);
-    newRockets.add(new Rocket(child));
+    for (int i = 0; i<this.rockets.size()-1; i++) {
+      int randNumA = floor(random(this.matingPool.size()-1));
+      int randNumB = floor(random(this.matingPool.size()-1));
+      DNA parentA = this.matingPool.get(randNumA).dna;
+      DNA parentB = this.matingPool.get(randNumB).dna;
+      DNA child = parentA.crossover(parentB);
+      newRockets.add(new Rocket(child));
     }
+    this.rockets.clear();
+    this.rockets.addAll(newRockets);
   }
 }
