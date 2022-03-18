@@ -1,4 +1,5 @@
 Population population;
+int lifeSpan = 200;
 void setup() {
   size(400, 300);
   population = new Population();

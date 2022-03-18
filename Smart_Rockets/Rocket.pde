@@ -3,17 +3,25 @@ class Rocket {
   PVector vel;
   PVector acc;
   PVector force;
+  DNA dna;
+  int count;
   Rocket() {
     this.pos = new PVector(width/2,height);
-    this.vel =  PVector.random2D();
+    this.vel = new PVector();
     this.acc = new PVector();
     this.force = new PVector();
     this.applyForce(force);
+    this.dna = new DNA();
+    this.count = 0;
   }
   void applyForce(PVector force) {
     this.acc.add(force);
   }
   void update() {
+    if(this.count < lifeSpan){
+    this.applyForce(this.dna.genes.get(this.count));
+    this.count++;
+    }
     this.vel.add(this.acc);
     this.pos.add(this.vel);
     this.acc.mult(0);
