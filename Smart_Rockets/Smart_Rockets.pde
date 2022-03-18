@@ -1,11 +1,13 @@
 Population population;
-int lifeSpan = 200;
+Obstacle obstacle;
+int lifeSpan = 400;
 int count = 0;
 Target target;
 void setup() {
   size(400, 300);
   population = new Population();
   target = new Target();
+  obstacle = new Obstacle(100,150,200,10);
 }
 void draw() {
   background(0);
@@ -19,6 +21,7 @@ void draw() {
   }
   println(count);
   target.show();
+  obstacle.show();
   textSize(32);
   fill(255);
   textAlign(CENTER, CENTER);
