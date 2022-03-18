@@ -2,7 +2,7 @@ Population population;
 Obstacle obstacle;
 int lifeSpan = 400;
 int count = 0;
-float maxForce = 0.1;
+float maxForce = 0.2;
 Target target;
 void setup() {
   size(400, 300);

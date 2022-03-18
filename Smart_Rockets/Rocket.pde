@@ -7,6 +7,7 @@ class Rocket {
   float fitness;
   Boolean completed;
   Boolean crashed;
+  int completeCount;
   Rocket() {
     this.pos = new PVector(width/2, height);
     this.vel = new PVector();
@@ -33,9 +34,12 @@ class Rocket {
     this.acc.add(force);
   }
   void update() {
+    if(!this.completed){
     float d = dist(this.pos.x, this.pos.y, target.pos.x, target.pos.y);
     if (d<10) {
       this.completed = true;
+      this.completeCount = count;
+    }
     }
     if (this.pos.x>obstacle.pos.x && this.pos.x < obstacle.pos.x + obstacle.w && this.pos.y > obstacle.pos.y && this.pos.y < obstacle.pos.y + obstacle.h) {
       this.crashed = true;
@@ -51,6 +55,7 @@ class Rocket {
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
+      this.vel.limit(4);
     }
   }
   void show() {
@@ -67,10 +72,10 @@ class Rocket {
     float d = dist(this.pos.x, this.pos.y, target.pos.x, target.pos.y);
     this.fitness = map(d, 0, width, width, 0);
     if (this.completed) {
-      this.fitness *= 10;
+      this.fitness *= (10*(lifeSpan/this.completeCount));
     }
     if (this.crashed) {
-      this.fitness = 1;
+      this.fitness /= 10;
     }
   }
 }
